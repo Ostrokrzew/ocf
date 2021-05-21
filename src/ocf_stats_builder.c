@@ -81,7 +81,7 @@ static void _fill_blocks(struct ocf_stats_blocks *blocks,
 {
 	uint64_t rd, wr, total;
 
-	/* Core volume */
+	/* Core device */
 	rd = _bytes4k(s->core_volume.read);
 	wr = _bytes4k(s->core_volume.write);
 	total = rd + wr;
@@ -89,7 +89,7 @@ static void _fill_blocks(struct ocf_stats_blocks *blocks,
 	_set(&blocks->core_volume_wr, wr, total);
 	_set(&blocks->core_volume_total, total, total);
 
-	/* Cache volume */
+	/* Cache device */
 	rd = _bytes4k(s->cache_volume.read);
 	wr = _bytes4k(s->cache_volume.write);
 	total = rd + wr;
@@ -97,7 +97,7 @@ static void _fill_blocks(struct ocf_stats_blocks *blocks,
 	_set(&blocks->cache_volume_wr, wr, total);
 	_set(&blocks->cache_volume_total, total, total);
 
-	/* Core (cache volume) */
+	/* Exported object (cache volume) */
 	rd = _bytes4k(s->core.read);
 	wr = _bytes4k(s->core.write);
 	total = rd + wr;
@@ -111,7 +111,7 @@ static void _fill_blocks_part(struct ocf_stats_blocks *blocks,
 {
 	uint64_t rd, wr, total;
 
-	/* Core volume */
+	/* Core device */
 	rd = _bytes4k(s->core_blocks.read);
 	wr = _bytes4k(s->core_blocks.write);
 	total = rd + wr;
@@ -119,7 +119,7 @@ static void _fill_blocks_part(struct ocf_stats_blocks *blocks,
 	_set(&blocks->core_volume_wr, wr, total);
 	_set(&blocks->core_volume_total, total, total);
 
-	/* Cache volume */
+	/* Cache device */
 	rd = _bytes4k(s->cache_blocks.read);
 	wr = _bytes4k(s->cache_blocks.write);
 	total = rd + wr;
@@ -127,7 +127,7 @@ static void _fill_blocks_part(struct ocf_stats_blocks *blocks,
 	_set(&blocks->cache_volume_wr, wr, total);
 	_set(&blocks->cache_volume_total, total, total);
 
-	/* Core (cache volume) */
+	/* Exported object (cache volume) */
 	rd = _bytes4k(s->blocks.read);
 	wr = _bytes4k(s->blocks.write);
 	total = rd + wr;
